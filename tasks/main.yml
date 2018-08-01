@@ -1,0 +1,8 @@
+---
+# tasks file for ansible-role-cybercom
+- import_tasks: dependencyCheck.yml
+- import_tasks: cybercom.yml
+
+# tasks to run old cookiecutter install
+#- include: pip.yml
+#- import_tasks: cookiecutter.yml

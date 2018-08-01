@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#generate keys for nginx
+{% if use_ssl == 'None' %}# SSL has not been configured for nginx - to force generation of keys, uncomment the following lines:{% endif %}
+{% if use_ssl == 'None' %}#{% endif %}docker run -d --rm --name {{application_short_name}}_openssl_nginx \
+{% if use_ssl == 'None' %}#{% endif %}  -v {{application_install_directory}}/{{application_short_name}}/config/ssl/nginx:/sslnginx:z \
+{% if use_ssl == 'None' %}#{% endif %}  cybercom/openssl ./sslnginx/generate
+
+#generate keys for message broker, mongodb, and clients
+docker run -d --rm --name {{application_short_name}}_openssl_mmc \
+  -v {{application_install_directory}}/{{application_short_name}}/config/ssl/backend:/ssl \
+  cybercom/openssl ./ssl/generate

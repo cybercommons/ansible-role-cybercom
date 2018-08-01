@@ -1,0 +1,9 @@
+---
+- name: Pip Packages
+  pip:
+    name: "{{ item.name }}"
+    version: "{{ item.version }}"
+    state: present
+  with_items:
+  - name: cookiecutter
+    version: 1.6.0

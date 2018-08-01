@@ -1,0 +1,5 @@
+---
+- name: Check DOCKER INSTALLED
+  command: docker version
+  register: docker_check
+  failed_when: docker_check.rc > 0

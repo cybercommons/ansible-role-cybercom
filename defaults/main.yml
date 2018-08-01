@@ -1,0 +1,38 @@
+---
+# defaults file for ansible-role-cybercom
+application_title: "Some Application"
+nginx_server_name: "localhost"
+# None, SelfSigned, LetsEncrypt
+use_ssl: "None"
+# If use_ssl == LetsEncrypt and genCerts == True. Default is False
+genCerts: False
+ssl_valid_days: 365
+ssl_state: "Colorado"
+ssl_city: "Boulder"
+ssl_organization: "University of Colorado"
+#leave broker host and broker port unchanged if no conflict
+broker_host: "localhost"
+broker_port: 5671
+
+broker_vhost: "vhost"
+broker_user: "quser"
+#Autogenerate password: if not set in --extra-vars or playbook
+broker_pass: "{{ lookup('password','/tmp/keystoresecret chars=ascii_lowercase,ascii_uppercase,digits length=12') }}"
+
+# Install an example queue https://github.com/cybercommons/cybercomq
+queue_tasks_org: "cybercommons"
+queue_tasks_repo: "cybercomq"
+queue_tasks_branch: "master"
+
+# celery processes
+celery_concurrency: 8
+
+# Application short name is the folder to install Framework
+# If the defaults are left unchanged.
+# /opt/someapp will be the install location
+application_short_name: "someapp"
+application_install_directory: "/opt"
+
+# docker has problems running in network mounted locations. Require privileged mode.
+# Options "" or "--privileged"
+docker_privileged: ""

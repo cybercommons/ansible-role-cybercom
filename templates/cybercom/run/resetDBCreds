@@ -1,0 +1,11 @@
+#!/bin/bash
+
+docker stop {{application_short_name}}_mongo
+
+docker run -it --rm \
+  -v {{application_short_name}}_mongodata:/data/db:z \
+  -v {{application_install_directory}}/{{application_short_name}}/config/config.sh:/config.sh \
+  -v {{application_install_directory}}/{{application_short_name}}/config/addmongouser:/addmongouser \
+  --entrypoint /addmongouser mongo
+
+docker start {{application_short_name}}_mongo

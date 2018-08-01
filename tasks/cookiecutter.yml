@@ -1,0 +1,6 @@
+---
+- template:
+    src: cookiecutter.yml
+    dest: "{{ application_install_directory }}/config.yml"
+- name: run cookiecutter
+  shell: 'cookiecutter --config-file {{ application_install_directory }}/config.yml -o {{ application_install_directory }}/{{ application_short_name }}/ --no-input https://github.com/cybercommons/cybercom-cookiecutter.git'

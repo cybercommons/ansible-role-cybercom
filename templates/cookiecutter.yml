@@ -1,0 +1,19 @@
+default_context:
+    author: "cyberCommons Framework"
+    application_title: "{{ application_title }}"
+    application_short_name: "{{ application_short_name }}"
+    nginx_server_name: "{{ nginx_server_name }}"
+    use_ssl: "{{ use_ssl }}"
+    ssl_valid_days: {{ ssl_valid_days }}
+    broker_host: "{{ broker_host }}"
+    broker_port: {{ broker_port }}
+    broker_vhost: "{{ broker_vhost }}"
+    broker_user: "{{ broker_user }}"
+    broker_pass: "{{ broker_pass }}"
+    queue_tasks_org: "{{ queue_tasks_org }}"
+    queue_tasks_repo: "{{ queue_tasks_repo }}"
+    queue_tasks_branch: "{{ queue_tasks_branch }}"
+    celery_concurrency: {{ celery_concurrency }}
+    docker_worker: "example.oscer.ou.edu"
+    docker_username: "someone"
+    application_install_directory: "{{ application_install_directory }}"
