@@ -14,7 +14,6 @@ Role Variables
 Please see [documentation](http://cybercom-docs.readthedocs.io/en/latest/installation.html#install-cybercommons-configuration) for detail explanation of variables.
 
   ```
-  author: "Some Guy"
   application_title: "Some Application"
   application_short_name: "someapp"
   nginx_server_name: "localhost"
